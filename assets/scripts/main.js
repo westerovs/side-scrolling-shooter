@@ -1,10 +1,13 @@
 import StartScene from './scenes/StartScene.js'
+import BootScene from './scenes/BootScene.js'
+import PreloadScene from './scenes/PreloadScene.js'
+// preload    - прелоадер
 
 const config = {
     type: Phaser.AUTO,
     width: 1280,
     height: 720,
-    scene: [StartScene]
+    scene: [BootScene, PreloadScene, StartScene]
 }
 
-const game = new Phaser.Game(config)
+const GAME = new Phaser.Game(config)
