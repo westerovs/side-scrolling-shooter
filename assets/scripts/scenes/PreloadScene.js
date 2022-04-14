@@ -8,7 +8,7 @@ export default class PreloadScene extends Phaser.Scene {
   }
   
   preload() {
-    // this.load.image('bg', 'assets/sprites/background.png')
+
   }
   
   create() {

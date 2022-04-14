@@ -1,13 +1,14 @@
-import StartScene from './scenes/StartScene.js'
+import {GAME_PARAMS} from './consts.js';
 import BootScene from './scenes/BootScene.js'
 import PreloadScene from './scenes/PreloadScene.js'
-// preload    - прелоадер
+import StartScene from './scenes/StartScene.js'
+import GameScene from './scenes/GameScene.js'
 
-const config = {
+const CONFIG = {
     type: Phaser.AUTO,
-    width: 1280,
-    height: 720,
-    scene: [BootScene, PreloadScene, StartScene]
+    width: GAME_PARAMS.width,
+    height: GAME_PARAMS.height,
+    scene: [BootScene, PreloadScene, StartScene, GameScene]
 }
 
-const GAME = new Phaser.Game(config)
+const GAME = new Phaser.Game(CONFIG)
