@@ -14,8 +14,8 @@ export default class StartScene extends Phaser.Scene {
   }
   
   #createText() {
-    const centerWorld = this.scale.baseSize._width / 2
-    this.add.text(centerWorld, 500, 'Tap to Start', {
+    const centerWorldW = this.scale.baseSize._width / 2
+    this.add.text(centerWorldW, 500, 'Tap to Start', {
       font: '60px'
     }).setOrigin(0.5)
   }

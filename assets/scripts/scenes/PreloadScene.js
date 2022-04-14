@@ -8,7 +8,7 @@ export default class PreloadScene extends Phaser.Scene {
   }
   
   preload() {
-
+    this.load.atlas('dragon', 'assets/sprites/dragon.png', 'assets/sprites/dragon.json')
   }
   
   create() {
