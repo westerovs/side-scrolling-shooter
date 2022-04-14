@@ -1,6 +1,9 @@
+import Player from '../prefabs/Player.js';
+
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game')
+    this.player = null
   }
   
   create() {
@@ -14,7 +17,7 @@ export default class GameScene extends Phaser.Scene {
   }
   
   #createDragon() {
-    const centerWorldH = this.scale.baseSize._height / 2
-    this.add.image(400, centerWorldH, 'dragon', 'dragon1')
+    this.player = new Player(this) // передаём всю сцену
+    // this.add.image(400, 500, 'dragon', 'dragon1')
   }
 }

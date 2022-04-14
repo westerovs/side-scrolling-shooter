@@ -21,9 +21,12 @@ export default class StartScene extends Phaser.Scene {
   }
   
   #setEvents() {
-    this.input.on('pointerdown', () => {
+    // this.input.on('pointerdown', () => {
+    //   this.scene.start('Game')
+    // })
+
+    setTimeout(() => {
       this.scene.start('Game')
-    })
+    }, 700)
   }
-  
 }
