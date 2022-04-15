@@ -4,7 +4,9 @@
 * базового класса
 * */
 
-export default class Player extends Phaser.GameObjects.Sprite {
+import Enemy from './Enemy.js';
+
+export default class Player extends Enemy {
   constructor(scene) {
     super(scene, 100, 500, 'dragon', 'dragon1');
     
@@ -13,9 +15,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   init() {
-    this.scene.add.existing(this)         // добавляет спрайт на сцену
-    this.scene.physics.add.existing(this) // добавляет физическое тело
-    this.body.enable = true
+    super.init()
   }
   
   move() {
