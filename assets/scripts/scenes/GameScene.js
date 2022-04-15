@@ -39,6 +39,6 @@ export default class GameScene extends Phaser.Scene {
   }
   
   #createEnemy() {
-    this.enemy = new Enemy(this, GAME_PARAMS.width - 150, GAME_PARAMS.height / 2, 'enemy', 'enemy1') // передаём всю сцену
+    this.enemy = Enemy.generate(this)
   }
 }
