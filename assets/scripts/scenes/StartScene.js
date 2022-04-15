@@ -27,6 +27,6 @@ export default class StartScene extends Phaser.Scene {
 
     setTimeout(() => {
       this.scene.start('Game')
-    }, 700)
+    }, 300)
   }
 }
