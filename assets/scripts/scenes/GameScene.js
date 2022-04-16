@@ -1,6 +1,6 @@
-import { GAME_PARAMS } from '../consts.js';
-import Player from '../prefabs/Player.js';
-import Enemy from '../prefabs/Enemy.js';
+import { GAME_PARAMS } from '../consts.js'
+import Player from '../prefabs/Player.js'
+import Enemies from '../prefabs/Enemies.js'
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -9,8 +9,8 @@ export default class GameScene extends Phaser.Scene {
     this.bg = null
     this.bgTilePositionSpeed = 0.1
     this.cursors = null
-    this.player = null
-    this.enemy = null
+    this.player  = null
+    this.enemies = null
   }
   
   init() {
@@ -21,12 +21,11 @@ export default class GameScene extends Phaser.Scene {
     console.log('create Game Scene')
     this.#createBackground()
     this.#createPlayer()
-    this.#createEnemy()
+    this.#createEnemies()
   }
   
   update() {
     this.player.move()
-    this.enemy.move()
     this.bg.tilePositionX += this.bgTilePositionSpeed
   }
   
@@ -38,7 +37,11 @@ export default class GameScene extends Phaser.Scene {
     this.player = new Player(this) // передаём всю сцену
   }
   
-  #createEnemy() {
-    this.enemy = Enemy.generate(this)
+  #createEnemies() {
+    this.enemies = new Enemies(this) // передаём всю сцену
+  
+    for (let i = 0; i < 5; i++) {
+      this.enemies.createEnemy()
+    }
   }
 }
