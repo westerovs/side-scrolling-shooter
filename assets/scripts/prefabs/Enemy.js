@@ -4,7 +4,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, texture, frame) {
     super(scene, x, y, texture, frame)
     
-    this.velocity = 10 * 50
+    this.velocity = 10
     this.init()
   }
   

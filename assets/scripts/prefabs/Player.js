@@ -5,6 +5,7 @@
 * */
 
 import Enemy from './Enemy.js';
+import Fire from './Fire.js';
 
 export default class Player extends Enemy {
   constructor(scene) {
@@ -16,6 +17,8 @@ export default class Player extends Enemy {
 
   init() {
     super.init()
+
+    Fire.generate(this.scene, this)
   }
   
   move() {

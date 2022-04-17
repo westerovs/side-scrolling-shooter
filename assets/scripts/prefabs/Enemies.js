@@ -6,7 +6,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Group {
     super()
     this.scene = scene
     
-    this.countEnemies = 9
+    this.countEnemies = 5
     this.countCreated = 0
     
     this.timer = this.scene.time.addEvent({
