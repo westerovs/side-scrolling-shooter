@@ -9,10 +9,9 @@ export default class Enemies extends Phaser.Physics.Arcade.Group {
     this.timer = this.scene.time.addEvent({
       delay: 1000,
       loop: true,
-      callback: this.tick,
+      callback: this.#tick,
       callbackScope: this,
     })
-    
   }
   
   createEnemy() {
@@ -21,7 +20,11 @@ export default class Enemies extends Phaser.Physics.Arcade.Group {
     enemy.move()
   }
   
-  tick() {
+  checkWorldBounds() {
+  
+  }
+  
+  #tick() {
     if (this.getLength() >= this.countEmeny) {
       this.timer.remove()
     } else {

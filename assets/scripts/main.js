@@ -1,7 +1,7 @@
 import {GAME_PARAMS} from './consts.js';
 
-import BootScene from './scenes/BootScene.js'
-import PreloadScene from './scenes/PreloadScene.js'
+import BootScene from './scenes/preload/BootScene.js'
+import PreloadScene from './scenes/preload/PreloadScene.js'
 import StartScene from './scenes/StartScene.js'
 import GameScene from './scenes/GameScene.js'
 
