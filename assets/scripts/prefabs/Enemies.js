@@ -5,7 +5,10 @@ export default class Enemies extends Phaser.Physics.Arcade.Group {
   constructor(scene) {
     super()
     this.scene = scene
-    this.countEmeny = 3
+    
+    this.countEnemies = 9
+    this.countCreated = 0
+    
     this.timer = this.scene.time.addEvent({
       delay: 1000,
       loop: true,
@@ -14,21 +17,29 @@ export default class Enemies extends Phaser.Physics.Arcade.Group {
     })
   }
   
-  createEnemy() {
-    const enemy = Enemy.generate(this.scene)
-    this.add(enemy)
-    enemy.move()
-  }
-  
-  checkWorldBounds() {
-  
-  }
-  
   #tick() {
-    if (this.getLength() >= this.countEmeny) {
-      this.timer.remove()
-    } else {
+    if (this.countCreated < this.countEnemies) {
       this.createEnemy()
+    } else {
+      this.timer.remove()
     }
+  }
+  
+  createEnemy() {
+    let enemy = this.getFirstDead() // получает первый мертвый объек
+    
+    if (!enemy) {
+      console.log('creating new enemy')
+      // если не получили getFirstDead, то создаём новый и добавляем в группу
+      enemy = Enemy.generate(this.scene)
+      this.add(enemy)
+    } else {
+      // если получили getFirstDead - то пересоздаём юнит
+      console.log('reset existing enemy')
+      enemy.reset()
+    }
+    
+    enemy.move()
+    ++this.countCreated
   }
 }

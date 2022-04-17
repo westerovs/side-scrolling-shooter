@@ -18,7 +18,6 @@ export default class GameScene extends Phaser.Scene {
   }
   
   create() {
-    console.log('create Game Scene')
     this.#createBackground()
     this.#createPlayer()
     this.#createEnemies()
