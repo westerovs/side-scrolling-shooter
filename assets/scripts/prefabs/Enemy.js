@@ -10,7 +10,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   
   static generate(scene) {
     const x = GAME_PARAMS.width + 10
-    const y = Phaser.Math.Between(100, GAME_PARAMS.height - 100)
+    const y = Phaser.Math.Between(50, GAME_PARAMS.height - 50)
     const frameId = Phaser.Math.Between(1, 4)
     
     return new Enemy(scene, x, y, 'enemy', `enemy${frameId}`) // передаём всю сцену
