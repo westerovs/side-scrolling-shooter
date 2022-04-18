@@ -19,14 +19,14 @@ export default class Fire extends Phaser.GameObjects.Sprite {
   
   init(data) {
     this.scene.add.existing(this)
-    this.velocity = data.velocity
+    this.velocity = -data.velocity
   }
   
   move() {
     this.body.setVelocityX(-this.velocity)
   }
   
-  fire() {
+  reset() {
   
   }
 }

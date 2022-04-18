@@ -5,7 +5,7 @@
 * */
 
 import Enemy from './Enemy.js';
-import Fire from './Fire.js';
+import Fires from './Fires.js';
 
 export default class Player extends Enemy {
   constructor(scene) {
@@ -13,12 +13,22 @@ export default class Player extends Enemy {
     
     this.velocity = 500
     this.init()
+  
+    this.timer = this.scene.time.addEvent({
+      delay: 300,
+      loop: true,
+      callback: this.#fire,
+      callbackScope: this,
+    })
   }
 
   init() {
     super.init()
-
-    Fire.generate(this.scene, this)
+  }
+  
+  #fire() {
+    this.fires = new Fires(this.scene)
+    this.fires.createFire(this)
   }
   
   move() {
