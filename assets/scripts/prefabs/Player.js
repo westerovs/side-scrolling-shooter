@@ -10,24 +10,29 @@ import Fires from './Fires.js';
 export default class Player extends Enemy {
   constructor(scene) {
     super(scene, 100, 500, 'dragon', 'dragon1');
-    
-    this.velocity = 500
-    this.init()
   
-    this.timer = this.scene.time.addEvent({
-      delay: 300,
-      loop: true,
-      callback: this.#fire,
-      callbackScope: this,
-    })
+    this.fires = null
+    this.velocity = null
+    this.timer = null
+    
+    this.init()
   }
 
   init() {
     super.init()
+
+    this.fires = new Fires(this.scene)
+    this.velocity = 500
+    
+    this.timer = this.scene.time.addEvent({
+      delay: 300, // скорость огня
+      loop: true,
+      callback: this.createFire,
+      callbackScope: this,
+    })
   }
   
-  #fire() {
-    this.fires = new Fires(this.scene)
+  createFire() {
     this.fires.createFire(this)
   }
   

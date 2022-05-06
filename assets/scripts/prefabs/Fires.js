@@ -6,18 +6,15 @@ export default class Fires extends Phaser.Physics.Arcade.Group {
     this.scene = scene
   }
   
-  
-  
   createFire(sprite) {
     let fire = this.getFirstDead()
-  
+    
     if (!fire) {
-      console.log('creating new fire')
+      // console.log('creating new fire')
       fire = Fire.generate(this.scene, sprite)
       this.add(fire)
     } else {
-      console.log('reset existing fire')
-      fire.reset()
+      fire.reset(sprite)
     }
   
     fire.move()

@@ -4,7 +4,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, texture, frame) {
     super(scene, x, y, texture, frame)
     
-    this.velocity = 10
+    this.velocity = 1000
     this.init()
   }
   
@@ -47,7 +47,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
   
   #update() {
     if (this.active && this.x < -this.width) {
-      console.log('deactivated');
+      // console.log('deactivated');
       this.#setAlive(false)
     }
   }
