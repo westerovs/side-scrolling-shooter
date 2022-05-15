@@ -21,6 +21,8 @@ export default class GameScene extends Phaser.Scene {
     this.#createBackground()
     this.#createPlayer()
     this.#createEnemies()
+    
+    this.#addOverlap()
   }
   
   update() {
@@ -39,5 +41,20 @@ export default class GameScene extends Phaser.Scene {
   #createEnemies() {
     this.enemies = new Enemies(this) // передаём всю сцену
     this.enemies.createEnemy()
+  }
+  
+  // тут все правила столкновений
+  #addOverlap() {
+    // overlap метод - регулирует правила столкновения 2-х объектов
+    // проверяем столкновение группы огней игрока с группой enemies
+    this.physics.add.overlap(this.player.fires, this.enemies, this.#onOverlap, undefined, this)
+  }
+  
+  #onOverlap(source, target) {
+    console.log(source, target)
+    console.log('babax')
+  
+    source.setAlive(false)
+    target.setAlive(false)
   }
 }
