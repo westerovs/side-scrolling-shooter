@@ -15,7 +15,7 @@ export default class Fires extends Phaser.Physics.Arcade.Group {
       this.add(fire)
     } else {
       // sprite.x + sprite.width / 2 → значит что пуля будет создаваться в правой части дракона
-      fire.reset(sprite.x + sprite.width / 2, sprite.y)
+      fire.reset(sprite.x, sprite.y)
     }
   
     fire.move()

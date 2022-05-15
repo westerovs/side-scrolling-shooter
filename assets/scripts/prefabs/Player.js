@@ -5,38 +5,30 @@
 * */
 
 import Enemy from './Enemy.js';
-import Fires from './Fires.js';
 
 export default class Player extends Enemy {
   constructor(scene) {
     super({
       scene,
-      x: 100,
-      y: 500,
-      texture: 'dragon',
-      frame: 'dragon1',
-      velocity: 500
+      x       : 100,
+      y       : 500,
+      texture : 'dragon',
+      frame   : 'dragon1',
+      velocity: 500,
+      bullet: {
+        delay: 500,
+        texture: 'fire',
+        velocity: 750,
+      },
+      origin: {
+        x: 1,
+        y: 0.5,
       }
-    );
+    });
   
     this.timer = null
   }
 
-  init(data) {
-    super.init(data)
-    this.fires = new Fires(this.scene)
-
-    this.timer = this.scene.time.addEvent({
-      delay: 300, // скорость огня
-      loop: true,
-      callback: this.createFire,
-      callbackScope: this,
-    })
-  }
-  
-  createFire() {
-    this.fires.createFire(this)
-  }
   
   move() {
     this.body.setVelocity(0)
