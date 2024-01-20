@@ -2,4 +2,4 @@
 🟢RUN:<br>
 https://westerovs.github.io/side-scrolling-shooter/
 <br>
-<img src="cover.png">
+<img src="cover.jpg">
